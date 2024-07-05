@@ -32,5 +32,5 @@ jobs:
         aws-region: us-east-1
 
     - name: Deploy to S3
-      run: aws s3 sync ./dist/find-devs s3://arn:aws:s3:::find-devs --delete
+      run: aws s3 sync ./dist/find-devs s3://find-devs --delete
 

@@ -1,0 +1,17 @@
+<div class="container mt-5">
+    <app-search-devs (findDev)="getDevs($event)"></app-search-devs>
+    <!-- <button (click)="getDevs()">teste</button> -->
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="items">
+        <div class="col" *ngFor="let item of items">
+          <div class="card h-100">
+            <img src={{item.avatar_url}} class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{item.login}}</h5>
+              <p class="card-text">{{item.url}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+

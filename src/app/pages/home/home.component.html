@@ -6,17 +6,8 @@
 
 
 <div class="container mt-2">
-  <!-- <nav aria-label="Page navigation example" class="text-end">
-  <pre>Total de desenvolvedores encontrados <b>{{total_count}}</b></pre>
-    <ul class="pagination d-flex justify-content-end">
-      <li class="page-item"><a class="link" [class.text-secondary]="page_atual <= 1" (click)="previoustPage()">Anterior</a></li>
-      <li class="page-item"><a class="link" [class.text-secondary]="page_atual == pagination(total_count)" (click)="nextPage()">Próxima</a></li>
-      <li class="page-item"><small>Página {{page_atual}} de {{pagination(total_count)}}</small></li>
-    </ul>
-  </nav> -->
 
   <app-pagination [total_count]="total_count" (page)="getDevs(nameDev, $event)"></app-pagination>
-
 
   <p *ngIf="!items">Nenhum desenvolvedor encontrado</p>
   <div class="row row-cols-1 row-cols-md-4 row-cols-sm-3 row-cols-lg-6 g-4 mt-4 card-grid" *ngIf="items">

@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { SearchDevsComponent } from 'src/app/components/search-devs/search-devs.component';
+import { PaginationComponent } from 'src/app/components/pagination/pagination.component';
 
 
 
@@ -18,7 +19,8 @@ import { SearchDevsComponent } from 'src/app/components/search-devs/search-devs.
     FindLayoutComponent, 
     NavbarComponent,
     HomeComponent,
-    SearchDevsComponent
+    SearchDevsComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,

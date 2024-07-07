@@ -1,1 +1,47 @@
-<p>profile works!</p>
+<div class="container mt-5">
+    <div class="row mt-4">
+        <div class=" col-12 col-sm-3 mb-4">
+                <div class="card">
+                <img src={{profile.avatar_url}} class="rounded-circle" alt="Foto do usuário do GitHub">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">{{profile.name}}</h4>
+                    <p><strong>usuário: </strong>{{profile.login}}</p>
+                    <p class="card-text"><small><a target="blank" href="{{profile.html_url}}">{{profile.html_url}}</a></small></p>
+                </div>
+                <div class="text-center m-2 mb-4">
+                    <p class="text-start"><b>Bio</b><br>
+                    {{profile.bio || 'Sem descrição...'}}</p>
+                </div>
+                <div class="text-center m-2" *ngIf="profile.location">
+                    <p class="text-start"><b>Localização<br></b>
+                        {{profile.location}}
+                    </p>
+                </div>
+                <div class="twitter m-2" *ngIf="profile.twitter_username">
+                    <i class="bi bi-twitter"></i>
+                    <a class="m-2" target="_blank" href="{{profile.twitter_username}}">{{profile.twitter_username}}</a>
+                </div>
+                </div>
+        </div>
+        <div class="col-9">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Repositório</th>
+                    <th scope="col">Linguagem</th>
+                    <th scope="col">Estrelas</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let rep of repos; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td><a href="{{rep.html_url}}" target="_blank">{{rep.name}}</a></td>
+                    <td>{{rep.language}}</td>
+                    <td>{{rep.stargazers_count}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

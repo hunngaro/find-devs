@@ -1,4 +1,11 @@
 <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" #name>
-    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="sendName(name.value)">Button</button>
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Pesquise pelo usuario do desenvolvedor" 
+      aria-label="Pesquise pelo usuario do desenvolvedor" 
+      aria-describedby="button-find"
+      (keydown.enter)="sendName(name.value)"
+      #name>
+    <button class="btn btn-outline-secondary" type="button" id="button-find" (click)="sendName(name.value)">Buscar</button>
   </div>

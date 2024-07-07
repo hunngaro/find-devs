@@ -5,13 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FindLayoutModule } from './layout/find-layout/find-layout.module';
 import { HttpClientModule } from '@angular/common/http';
-import { PaginationComponent } from './components/pagination/pagination.component';
-import { ProfileComponent } from './pages/profile/profile.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -31,14 +31,28 @@
                     <th scope="col">Repositório</th>
                     <th scope="col">Linguagem</th>
                     <th scope="col">Estrelas</th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr *ngFor="let rep of repos; let i = index">
+                <tbody *ngFor="let rep of repos; let i = index">
+                  <tr  >
                     <th scope="row">{{i+1}}</th>
                     <td><a href="{{rep.html_url}}" target="_blank">{{rep.name}}</a></td>
                     <td>{{rep.language}}</td>
                     <td>{{rep.stargazers_count}}</td>
+                    <td (click)="toggleDetails(i); getRepoDetail(rep.name)">
+                      <span *ngIf="expandedIndex != i"><i class="bi bi-chevron-down"></i></span>
+                      <span *ngIf="expandedIndex == i"><i class="bi bi-chevron-up"></i></span>
+                  </td>
+                  </tr>
+                  <tr *ngIf="expandedIndex === i">
+                    <td [attr.colspan]="5">
+                      <div class="card">
+                        <div class="card-body">
+                          <strong>Descrição: </strong>{{repoDetail.description}}
+                        </div>
+                      </div>
+                    </td>
                   </tr>
                 </tbody>
               </table>

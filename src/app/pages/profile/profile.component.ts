@@ -12,6 +12,8 @@ export class ProfileComponent implements OnInit{
   username: any;
   profile: any;
   repos!: Array<any>;
+  expandedIndex: number | null = null;
+  repoDetail!: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,6 +41,19 @@ export class ProfileComponent implements OnInit{
     this.service.sendGetRequest(url).subscribe(res => {
       this.repos = res
     })
+  }
+
+  getRepoDetail(name: string){
+    let url = `https://api.github.com/repos/${this.username}/${name}`
+    this.service.sendGetRequest(url).subscribe(res => {
+      this.repoDetail = res;
+      console.log(res)
+    })
+  }
+
+  toggleDetails(index: number): void {
+    this.repoDetail = null;
+    this.expandedIndex = this.expandedIndex === index ? null : index;
   }
 
 }

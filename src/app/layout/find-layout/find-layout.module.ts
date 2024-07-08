@@ -22,7 +22,7 @@ import { ProfileComponent } from 'src/app/pages/profile/profile.component';
     HomeComponent,
     SearchDevsComponent,
     PaginationComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     CommonModule,

@@ -1,26 +1,26 @@
 <div class="container mt-5">
   <div class="row mt-4">
     <div class=" col-12 col-sm-3 mb-4">
-      <div class="card">
+      <div class="card" tabindex="0">
         <img src={{profile.avatar_url}} class="rounded-circle" alt="Foto do usuário do GitHub">
         <div class="card-body">
           <!-- <h4 class="card-title mb-4">{{profile.name}}</h4> -->
-          <p><strong>usuário: </strong>{{profile.login}}</p>
-          <p class="card-text"><small><a target="blank" href="{{profile.html_url}}">{{profile.html_url}}</a></small></p>
+          <p tabindex="0" [attr.aria-label]="'O login do usuario é'"><strong>Usuário: </strong>{{profile.login}}</p>
+          <p tabindex="0" [attr.aria-label]="'O link do Github é' + profile.html_url" class="card-text"><strong>Link: </strong><small><a target="blank" href="{{profile.html_url}}">{{profile.html_url}}</a></small></p>
         </div>
-        <div class="text-center m-2" *ngIf="profile.location">
-          <p class="text-start"><b>Localização<br></b>
+        <div tabindex="0" class="text-center m-2" *ngIf="profile.location">
+          <p tabindex="0" [attr.aria-label]="'A localização do usuário é '" class="text-start"><b>Localização<br></b>
             {{profile.location}}
           </p>
         </div>
         <div class="twitter m-2" *ngIf="profile.twitter_username">
           <i class="bi bi-twitter"></i>
-          <a class="m-2" target="_blank" href="{{profile.twitter_username}}">{{profile.twitter_username}}</a>
+          <a tabindex="0" [attr.aria-label]="'O twitter do usuário é '" class="m-2" target="_blank" href="{{profile.twitter_username}}">{{profile.twitter_username}}</a>
         </div>
       </div>
     </div>
     <div class="col-12 col-sm-9">
-      <div class="card">
+      <div class="card" tabindex="0">
         <div class="card-body">
           <h1 class="display-4">{{profile.name || profile.login}}</h1>
           <p class="lead">{{profile.bio || 'Sem descrição...'}}</p>
@@ -29,28 +29,28 @@
       </div>
       <table class="table mt-4">
         <thead>
-          <tr>
+          <tr tabindex="0">
             <th scope="col"></th>
-            <th scope="col">Repositório</th>
-            <th scope="col">Linguagem</th>
-            <th scope="col">Estrelas</th>
-            <th scope="col"></th>
+            <th tabindex="0" scope="col">Repositório</th>
+            <th tabindex="0" scope="col">Linguagem</th>
+            <th tabindex="0" scope="col">Estrelas</th>
+            <th tabindex="0" scope="col"></th>
           </tr>
         </thead>
         <tbody *ngFor="let rep of repos; let i = index">
           <tr>
             <th scope="row">{{i+1}}</th>
-            <td><a href="{{rep.html_url}}" target="_blank">{{rep.name}}</a></td>
-            <td>{{rep.language}}</td>
-            <td>{{rep.stargazers_count}}</td>
-            <td (click)="toggleDetails(i); getRepoDetail(rep.name)">
-              <span *ngIf="expandedIndex != i"><i class="bi bi-chevron-down"></i></span>
-              <span *ngIf="expandedIndex == i"><i class="bi bi-chevron-up"></i></span>
+            <td tabindex="0"><a href="{{rep.html_url}}" target="_blank">{{rep.name}}</a></td>
+            <td tabindex="0">{{rep.language}}</td>
+            <td tabindex="0">{{rep.stargazers_count}}</td>
+            <td tabindex="0" (click)="toggleDetails(i); getRepoDetail(rep.name)" (keydown.enter)="toggleDetails(i); getRepoDetail(rep.name)">
+              <span [attr.aria-label]="'Abrir informações do repositório'" *ngIf="expandedIndex != i"><i class="bi bi-chevron-down"></i></span>
+              <span [attr.aria-label]="'Fechar informações do repositório'" *ngIf="expandedIndex == i"><i class="bi bi-chevron-up"></i></span>
             </td>
           </tr>
           <tr *ngIf="expandedIndex === i">
             <td [attr.colspan]="5">
-              <div class="card">
+              <div class="card"  tabindex="0" [attr.aria-label]="'Informações do repositório'">
                 <div class="card-body">
                   <p><strong>Descrição: </strong>{{repoDetail.description || 'sem descrição'}}</p>
                   <p *ngIf="repoDetail.homepage"><strong>Home Page: </strong><a  target="_blank" href="{{repoDetail.homepage}}">{{repoDetail.homepage}}</a></p>

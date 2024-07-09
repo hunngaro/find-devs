@@ -12,14 +12,14 @@
   <p *ngIf="!items">Nenhum desenvolvedor encontrado</p>
   <div class="row row-cols-1 row-cols-md-4 row-cols-sm-3 row-cols-lg-6 g-4 mt-4 card-grid" *ngIf="items">
     <div class="col" *ngFor="let item of items">
-      <div class="card h-100">
+      <div class="card h-100" tabindex="0">
         <img src={{item.avatar_url}} class="card-img-top" alt="Foto do usuário do GitHub">
-        <div class="card-body">
-          <h5 class="card-title">{{item.login}}</h5>
-          <p class="card-text mt-4"><small><a target="blank" href="{{item.html_url}}">{{item.html_url}}</a></small></p>
+        <div class="card-body" >
+          <h5 class="card-title" tabindex="0" [attr.aria-label]="'Login do usuário no github é' + item.login">{{item.login}}</h5>
+          <p class="card-text mt-4"><small><a [attr.aria-label]="'Esse é o link do perfil do usuário no Github' + item.html_url" target="blank" href="{{item.html_url}}">{{item.html_url}}</a></small></p>
         </div>
         <div class="text-center m-2 mb-4">
-          <a [routerLink]="['/profile', item.login]" class="btn btn-dark">Coder Review</a>
+          <a [routerLink]="['/profile', item.login]" [attr.aria-label]="'Ver perfil e repositórios do usuario' + item.login"class="btn btn-dark">Coder Review</a>
         </div>
       </div>
     </div>

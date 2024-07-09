@@ -1,8 +1,8 @@
-<nav aria-label="Page navigation example" class="text-end">
-    <pre>Total de desenvolvedores encontrados <b>{{total_count}}</b></pre>
-    <ul class="pagination d-flex justify-content-end">
-        <li class="page-item"><a class="link" [class.text-secondary]="page_atual <= 1" (click)="previoustPage()">Anterior</a></li>
-        <li class="page-item"><a class="link" [class.text-secondary]="page_atual == pagination(total_count)" (click)="nextPage()">Próxima</a></li>
-        <li class="page-item"><small>Página {{page_atual}} de {{pagination(total_count)}}</small></li>
+<nav aria-label="Aqui você pode navegar entre paginas da pesquisa" class="text-end">
+    <pre tabindex="0">Total de desenvolvedores encontrados <b>{{total_count}}</b></pre>
+    <ul class="pagination d-flex justify-content-end" >
+        <li class="page-item" tabindex="0"><small>Página {{page_atual}} de {{pagination(total_count)}}</small></li>
+        <li class="page-item"><a class="link" tabindex="0" aria-label="voltar a página anterior" [class.text-secondary]="page_atual <= 1" (keydown.enter)="previoustPage()" (click)="previoustPage()" >Anterior</a></li>
+        <li class="page-item"><a class="link" tabindex="0" aria-label="ir para a próxima pagina" [class.text-secondary]="page_atual == pagination(total_count)" (keydown.enter)="nextPage()" (click)="nextPage()">Próxima</a></li>
     </ul>
 </nav>

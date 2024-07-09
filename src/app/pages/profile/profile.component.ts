@@ -44,7 +44,6 @@ export class ProfileComponent implements OnInit {
     this.service.sendGetRequest(url).subscribe(res => {
       this.repos = res
     }, error => {
-      console.log(error)
       this.router.navigate([`error/:${error.error.message}`])
     })
   }
@@ -53,9 +52,8 @@ export class ProfileComponent implements OnInit {
     let url = `https://api.github.com/repos/${this.username}/${name}`
     this.service.sendGetRequest(url).subscribe(res => {
       this.repoDetail = res;
-      console.log(res)
     }, error => {
-      this.router.navigate(['error'])
+      this.router.navigate([`error/:${error.error.message}`])
     })
   }
 

@@ -11,18 +11,22 @@ import { HomeComponent } from 'src/app/pages/home/home.component';
 import { SearchDevsComponent } from 'src/app/components/search-devs/search-devs.component';
 import { PaginationComponent } from 'src/app/components/pagination/pagination.component';
 import { ProfileComponent } from 'src/app/pages/profile/profile.component';
+import { FilterComponent } from 'src/app/components/filter/filter.component';
+import { ErrorComponent } from 'src/app/pages/error/error.component';
 
 
 
 
 @NgModule({
-  declarations: [ 
-    FindLayoutComponent, 
+  declarations: [
+    FindLayoutComponent,
     NavbarComponent,
     HomeComponent,
     SearchDevsComponent,
     PaginationComponent,
     ProfileComponent,
+    FilterComponent,
+    ErrorComponent,
   ],
   imports: [
     CommonModule,

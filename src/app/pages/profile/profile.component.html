@@ -52,7 +52,9 @@
             <td [attr.colspan]="5">
               <div class="card">
                 <div class="card-body">
-                  <strong>Descrição: </strong>{{repoDetail.description}}
+                  <p><strong>Descrição: </strong>{{repoDetail.description || 'sem descrição'}}</p>
+                  <p *ngIf="repoDetail.homepage"><strong>Home Page: </strong><a  target="_blank" href="{{repoDetail.homepage}}">{{repoDetail.homepage}}</a></p>
+                  <p><strong>Fork: </strong>{{repoDetail.fork}}</p>
                 </div>
               </div>
             </td>

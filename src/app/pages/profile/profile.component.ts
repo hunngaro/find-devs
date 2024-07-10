@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   repos!: Array<any>;
   expandedIndex: number | null = null;
   repoDetail!: any;
+  filters: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,13 +40,21 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  getRepos() {
-    let url = `https://api.github.com/users/${this.username}/repos`
-    this.service.sendGetRequest(url).subscribe(res => {
-      this.repos = res
-    }, error => {
-      this.router.navigate([`error/:${error.error.message}`])
-    })
+  getRepos(filter?: any) {
+    if(filter == 'star'){
+       this.repos = this.repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+       return
+    }
+    let url: string = `https://api.github.com/users/${this.username}/repos`;
+    if(filter != 'star' && filter){
+      console.log(filter)
+       url = `https://api.github.com/users/${this.username}/repos${filter}`
+       this.service.sendGetRequest(url).subscribe(res => {
+        this.repos = res
+      }, error => {
+        this.router.navigate([`error/:${error.error.message}`])
+      })
+    }
   }
 
   getRepoDetail(name: string) {

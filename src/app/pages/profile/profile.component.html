@@ -1,15 +1,15 @@
-<div class="container mt-5">
-  <div class="row mt-4">
+<section class="container mt-5">
+  <article class="row mt-4">
     <div class=" col-12 col-sm-3 mb-4">
       <div class="card" tabindex="0">
-        <img src={{profile.avatar_url}} class="rounded-circle" alt="Foto do usuário do GitHub">
+          <img tabindex="0" src={{profile.avatar_url}} class="rounded-circle" [attr.aria-label]="'Foto de ' + profile.login" alt="Foto do usuário do GitHub">
         <div class="card-body">
           <!-- <h4 class="card-title mb-4">{{profile.name}}</h4> -->
           <p tabindex="0" [attr.aria-label]="'O login do usuario é'"><strong>Usuário: </strong>{{profile.login}}</p>
           <p tabindex="0" [attr.aria-label]="'O link do Github é' + profile.html_url" class="card-text"><strong>Link: </strong><small><a target="blank" href="{{profile.html_url}}">{{profile.html_url}}</a></small></p>
         </div>
-        <div tabindex="0" class="text-center m-2" *ngIf="profile.location">
-          <p tabindex="0" [attr.aria-label]="'A localização do usuário é '" class="text-start"><b>Localização<br></b>
+        <div class="text-center m-2" *ngIf="profile.location">
+          <p tabindex="0" [attr.aria-label]="'A localização do usuário é ' + profile.location" class="text-start"><b>Localização<br></b>
             {{profile.location}}
           </p>
         </div>
@@ -27,6 +27,7 @@
           <hr class="my-4">
         </div>
       </div>
+      <app-filter (filters)="getRepos($event)"></app-filter>
       <table class="table mt-4">
         <thead>
           <tr tabindex="0">
@@ -62,5 +63,5 @@
         </tbody>
       </table>
     </div>
-  </div>
-</div>
+  </article>
+</section>

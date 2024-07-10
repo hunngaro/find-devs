@@ -1,1 +1,10 @@
-<p>filter works!</p>
+<nav aria-label="Aqui você pode ordenar os repositórios" class="text-end m-4">
+    <ul class="pagination d-flex justify-content-end" >
+        <li class="page-item" tabindex="0"><small></small></li>
+        <li class="page-item">
+            Ordenar:<a class="link m-2" tabindex="0" aria-label="Ordenar por Crescente"  (keydown.enter)="sort('asc')" (click)="sort('asc')" >Crescente</a>
+        </li>
+        <li class="page-item"><a class="link m-2" tabindex="0" aria-label="Ordenar por decrescente"  (keydown.enter)="sort('desc')" (click)="sort('desc')">Decrescente</a></li>
+        <li class="page-item"><a class="link" tabindex="0" aria-label="Ordenar por estrelas"  (keydown.enter)="sort('star')" (click)="sort('star')">Estrelas</a></li>
+    </ul>
+</nav>

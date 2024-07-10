@@ -1,19 +1,22 @@
-<div class="container mt-5">
+<section class="container mt-5">
     <app-search-devs (findDev)="getDevs($event); nameDev = $event; page_atual = 1"></app-search-devs>
     <!-- <button (click)="getDevs()">teste</button> -->
-</div>
+</section>
 
 
 
-<div class="container mt-2">
+<section class="container mt-2">
 
   <app-pagination [total_count]="total_count" (page)="getDevs(nameDev, $event)"></app-pagination>
 
   <p *ngIf="!items">Nenhum desenvolvedor encontrado</p>
-  <div class="row row-cols-1 row-cols-md-4 row-cols-sm-3 row-cols-lg-6 g-4 mt-4 card-grid" *ngIf="items">
+  <div class="row row-cols-1 row-cols-md-4 row-cols-sm-3 row-cols-lg-6 g-4 mt-4 card-grid" *ngIf="items" tabindex="0" aria-label="Navegue pelos usuarios encontrados">
     <div class="col" *ngFor="let item of items">
-      <div class="card h-100" tabindex="0">
-        <img src={{item.avatar_url}} class="card-img-top" alt="Foto do usuário do GitHub">
+      <div class="card h-100"  >
+        <figure>
+          <img  tabindex="0" src={{item.avatar_url}} class="card-img-top" [attr.aria-label]="'Foto de ' + item.login" alt="Foto do usuário do GitHub">
+        </figure>
+        <!-- <figcaption>Foto de perfil utilazada pelo usuário</figcaption> -->
         <div class="card-body" >
           <h5 class="card-title" tabindex="0" [attr.aria-label]="'Login do usuário no github é' + item.login">{{item.login}}</h5>
           <p class="card-text mt-4"><small><a [attr.aria-label]="'Esse é o link do perfil do usuário no Github' + item.html_url" target="blank" href="{{item.html_url}}">{{item.html_url}}</a></small></p>
@@ -24,5 +27,5 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 

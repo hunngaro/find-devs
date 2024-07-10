@@ -1,7 +1,7 @@
-<section class="container mt-5">
+<section class="container mt-5" *ngIf="loading">
   <article class="row mt-4">
     <div class=" col-12 col-sm-3 mb-4">
-      <div class="card" tabindex="0">
+      <div class="card" tabindex="0" *ngIf="profile.name">
           <img tabindex="0" src={{profile.avatar_url}} class="rounded-circle" [attr.aria-label]="'Foto de ' + profile.login" alt="Foto do usuário do GitHub">
         <div class="card-body">
           <!-- <h4 class="card-title mb-4">{{profile.name}}</h4> -->

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-home',
@@ -43,9 +45,8 @@ export class HomeComponent implements OnInit{
   }
 
   getDevs(name: any, page?: number) {
-    console.log(page)
 
-    let url = `https://api.github.com/search/users?q=${name}&page=${page}`;
+    let url = `${environment.api_github_search_users}?q=${name}&page=${page}`;
     this.service.sendGetRequest(url).subscribe( res => {
       this.items = res.items;
       this.total_count = res.total_count;

@@ -12,7 +12,6 @@ export class SearchDevsComponent {
 
   sendName(name: string){
     this.findDev.emit(name)
-    console.log(name)
   }
 
 }
